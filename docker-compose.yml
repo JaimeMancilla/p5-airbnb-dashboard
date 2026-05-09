@@ -1,0 +1,14 @@
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/notebooks
+      - ./data:/home/jovyan/dataP
+      - ./app:/home/jovyan/app
+      - /c/Users/jaime/AppData/Roaming/gcloud:/home/jovyan/.config/gcloud
+    
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - GOOGLE_APPLICATION_CREDENTIALS=/home/jovyan/.config/gcloud/application_default_credentials.json
